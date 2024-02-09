@@ -1,5 +1,6 @@
 from setuptools import find_packages,setup
 
+
 def get_requirements(file_path:str)->[str]:
     requirements=[]
     with open(file_path) as file_obj:
