@@ -1,10 +1,7 @@
 import sys
 from Xray.components.data_ingestion import DataIngestion
-from Xray.components.data_transformation import DataTransformation
-from Xray.components.model_training import ModelTrainer
 from Xray.entity.config_entity import DataIngestionConfig
 from Xray.entity.artifact_entity import DataIngestionArtifact
-from Xray.components.model_evaluation import ModelEvaluation
 from Xray.exception import XRayException
 from Xray.logger import logging
 
@@ -36,3 +33,8 @@ class TrainingPipeline:
         except Exception as e:
             raise XRayException(e, sys)
 
+
+if __name__ == "__main__":
+    train_pipeline=TrainingPipeline()
+
+    train_pipeline.start_data_ingestion()
