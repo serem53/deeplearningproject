@@ -1,10 +1,14 @@
 # deeplearningproject
 
-##workflows
+**workflows**
 
--constants
--config_entity
--components
--pipeline
--main
+*constants*
+
+*config_entity*
+
+*components*
+
+*pipeline*
+
+*main*
 
