@@ -66,6 +66,6 @@ BENTOML_MODEL_NAME: str = "xray_model"
 
 BENTOML_SERVICE_NAME: str = "xray_service"
 
-BENTOML_ECR_URI: str = "xray_bento_image"
+BENTOML_ECR_URI: str = "533267399033.dkr.ecr.eu-north-1.amazonaws.com/chestxrayrecognition"
 
 PREDICTION_LABEL: dict = {"0": CLASS_LABEL_1, 1: CLASS_LABEL_2}
