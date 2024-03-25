@@ -5,7 +5,7 @@ from Xray.components.model_training import ModelTrainer
 from Xray.components.model_evaluation import ModelEvaluation
 from Xray.components.model_pusher import ModelPusher
 from Xray.entity.config_entity import (DataIngestionConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig)
-from Xray.entity.artifact_entity import (DataIngestionArtifact,DataTransformationArtifact,ModelTrainerArtifact,ModelEvaluationArtifact)
+from Xray.entity.artifact_entity import (DataIngestionArtifact,DataTransformationArtifact,ModelTrainerArtifact,ModelEvaluationArtifact,ModelPusherArtifact)
 from Xray.exception import XRayException
 from Xray.logger import logging
 
@@ -15,6 +15,7 @@ class TrainingPipeline:
         self.data_ingestion_config=DataIngestionConfig()
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainerConfig()
+        self.model_evaluation_config = ModelEvaluationConfig()
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         logging.info("Entered the start_data_ingestion method of TrainPipeline class")
@@ -89,13 +90,14 @@ class TrainingPipeline:
         self,
         model_trainer_artifact: ModelTrainerArtifact,
         data_transformation_artifact: DataTransformationArtifact,
+        model_evaluation_config: ModelEvaluationConfig,
     ) -> ModelEvaluationArtifact:
         logging.info("Entered the start_model_evaluation method of TrainPipeline class")
 
         try:
             model_evaluation = ModelEvaluation(
                 data_transformation_artifact=data_transformation_artifact,
-                model_evaluation_config=self.model_evaluation_config,
+                model_evaluation_config=model_evaluation_config,
                 model_trainer_artifact=model_trainer_artifact,
             )
 
@@ -162,3 +164,6 @@ class TrainingPipeline:
 
         except Exception as e:
             raise XRayException(e, sys)
+
+
+
