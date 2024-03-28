@@ -16,7 +16,7 @@ def save_image(uploaded_file):
 
         model = torch.load(Path(r'artifacts\03_12_2024_18_18_33\model_training\model.pt'))
 
-
+        ## transforming the image
         trans = transforms.Compose([
             transforms.RandomHorizontalFlip(),
             transforms.Resize(224),
