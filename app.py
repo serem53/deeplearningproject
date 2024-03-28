@@ -46,7 +46,7 @@ def save_image(uploaded_file):
 
 
 
-
+## running the streamlit app
 if __name__ == "__main__":
     st.title("Xray lung classifier")
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
