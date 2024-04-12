@@ -22,7 +22,7 @@ from Xray.ml.model.arch import Net
 
 
 
-
+#model trainer config
 class ModelTrainer:
     def __init__(
         self,
