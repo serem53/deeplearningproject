@@ -7,6 +7,7 @@ from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XRayException
 from Xray.logger import logging
 
+##data ingestion configuration
 class DataIngestion:
     def __init__(self, data_ingestion_config: DataIngestionConfig):
         self.data_ingestion_config = data_ingestion_config
