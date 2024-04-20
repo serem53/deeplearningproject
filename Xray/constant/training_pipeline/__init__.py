@@ -7,7 +7,7 @@ TIMESTAMP: datetime=datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
 ################################################################
 # data ingestion
-ARTIFACT_DIR: str="artifacts"
+ARTIFACT_DIR: str="model"
 
 BUCKET_NAME: str="dl-xray-lung-project"
 
