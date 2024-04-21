@@ -14,7 +14,7 @@ def save_image(uploaded_file):
             f.write(uploaded_file.read())
         st.success(f"Image saved to {save_path}")
 
-        model = torch.load(Path(r'artifacts\03_12_2024_18_18_33\model_training\model.pt'))
+        model = torch.load(Path(r'model\model.pt'))
 
         ## transforming the image
         trans = transforms.Compose([
