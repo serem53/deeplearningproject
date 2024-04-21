@@ -13,7 +13,7 @@ def save_image(uploaded_file):
         with open(save_path, "wb") as f:
             f.write(uploaded_file.read())
         st.success(f"Image saved to {save_path}")
-
+        ##model path
         model = torch.load(Path(r'model\model.pt'))
 
         ## transforming the image
