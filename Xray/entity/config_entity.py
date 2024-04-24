@@ -55,7 +55,7 @@ class DataTransformationConfig:
 @dataclass
 class ModelTrainerConfig:
     def __init__(self):
-        self.artifact_dir: int = os.path.join(ARTIFACT_DIR, TIMESTAMP, "model_training")
+        self.artifact_dir: int = os.path.join(TRAINED_MODEL_DIR, TIMESTAMP)
 
         self.trained_bentoml_model_name: str = "xray_model"
 

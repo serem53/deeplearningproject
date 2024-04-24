@@ -7,7 +7,7 @@ TIMESTAMP: datetime=datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
 ################################################################
 # data ingestion
-ARTIFACT_DIR: str="model"
+ARTIFACT_DIR: str="artifacts"
 
 BUCKET_NAME: str="dl-xray-lung-project"
 
@@ -50,9 +50,9 @@ SHUFFLE: bool = False
 PIN_MEMORY: bool = True
 
 # model trainer 
-TRAINED_MODEL_DIR: str = "trained_model"
+TRAINED_MODEL_DIR: str = "model"
 
-TRAINED_MODEL_NAME: str = "model.pt"
+TRAINED_MODEL_NAME: str = "model2.pt"
 
 DEVICE: torch.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

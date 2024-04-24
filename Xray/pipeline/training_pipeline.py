@@ -132,26 +132,28 @@ class TrainingPipeline:
         logging.info("Entered the run_pipeline method of TrainPipeline class")
 
         try:
-            data_ingestion_artifact: DataIngestionArtifact = self.start_data_ingestion()
+            #data_ingestion_artifact: DataIngestionArtifact = self.start_data_ingestion()
+            data_ingestion_artifact = DataIngestionArtifact(train_file_path = "artifacts\\04_24_2024_13_19_04\\data_ingestion\\chest_xray\\train",test_file_path = "artifacts\\04_24_2024_13_19_04\\data_ingestion\\chest_xray\\test")
             data_transformation_artifact: DataTransformationArtifact = (
                 self.start_data_transformation(
                     data_ingestion_artifact=data_ingestion_artifact
                 )
             )
 
-
+            
             model_trainer_artifact: ModelTrainerArtifact = self.start_model_trainer(
                 data_transformation_artifact=data_transformation_artifact
             )
             
             model_evaluation_artifact: ModelEvaluationArtifact = (
                 self.start_model_evaluation(
+                    model_evaluation_config=self.model_evaluation_config,
                     model_trainer_artifact=model_trainer_artifact,
                     data_transformation_artifact=data_transformation_artifact,
                 )
             )
             
-            model_pusher_artifact = self.start_model_pusher()
+           # model_pusher_artifact = self.start_model_pusher()
 
             logging.info("Exited the run_pipeline method of TrainPipeline class")
 
@@ -167,3 +169,7 @@ class TrainingPipeline:
 
 
 
+if __name__ == "__main__":
+     train_pipeline = TrainingPipeline()
+
+     train_pipeline.run_pipeline()

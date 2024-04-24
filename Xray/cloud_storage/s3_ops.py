@@ -5,7 +5,7 @@ from typing import List, Union
 import boto3
 from botocore.exceptions import ClientError
 from mypy_boto3_s3.service_resource import Bucket
-from xray.logger import logging
+from Xray.logger import logging
 
 
 class S3Operation:

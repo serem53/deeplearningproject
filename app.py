@@ -9,13 +9,19 @@ from pathlib import Path
 # this is for saving images and prediction
 def save_image(uploaded_file):
     if uploaded_file is not None:
+        #check if there's already an image in the images folder and delete it
+        #save new image to images
         save_path = os.path.join("images", "input.jpeg")
+        if os.path.exists(save_path):
+            os.remove(save_path)
+
+        #save the new image
         with open(save_path, "wb") as f:
             f.write(uploaded_file.read())
         st.success(f"Image saved to {save_path}")
         ##model path
         # Construct the file path using os.path.join to handle platform differences
-        model_path = os.path.join('model', 'model.pt')
+        model_path = os.path.join('model', 'model_a.pt')
         model = torch.load(model_path)
 
         ## transforming the image
@@ -37,10 +43,10 @@ def save_image(uploaded_file):
         prediction = int(torch.max(output.data, 1)[1].numpy())
         print(prediction)
 
-        if (prediction == 0):
+        if (prediction == 1):
             print ('Normal')
             st.text_area(label="Prediction:", value="Normal", height=100)
-        if (prediction == 1):
+        if (prediction == 0):
             print ('PNEUMONIA')
             st.text_area(label="Prediction:", value="PNEUMONIA", height=100)
 

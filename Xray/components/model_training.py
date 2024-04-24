@@ -189,7 +189,7 @@ class ModelTrainer:
                 optimizer=optimizer, **self.model_trainer_config.scheduler_params
             )
 
-            for epoch in range(1, self.model_trainer_config.epochs + 1):
+            for epoch in range(100, self.model_trainer_config.epochs + 1):
                 print("Epoch : ", epoch)
 
                 self.train(optimizer=optimizer)
